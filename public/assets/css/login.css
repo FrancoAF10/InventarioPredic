@@ -1,0 +1,95 @@
+        :root {
+            --primary-orange: #F54927;
+            --highlight-orange: #FF3D00;
+            --neon-blue: #00F5FF;
+            --electric-yellow: #FFEE00;
+            --hot-pink: #FF00F5;
+            --acid-green: #00FF8F;
+        }
+
+        body {
+            background-color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s;
+            position: relative;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .login-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(245, 73, 39, 0.2);
+        }
+
+        /* Burbujas de fondo */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(15px);
+            z-index: 1;
+            opacity: 0.6;
+            mix-blend-mode: multiply;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Inputs con efecto fosforescente */
+        .form-control:focus {
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 0 0.25rem rgba(245, 73, 39, 0.25),
+                        0 0 15px 5px rgba(245, 73, 39, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0.25rem rgba(245, 73, 39, 0.25), 0 0 10px 3px rgba(245, 73, 39, 0.5); }
+            50% { box-shadow: 0 0 0 0.25rem rgba(245, 73, 39, 0.25), 0 0 20px 7px rgba(245, 73, 39, 0.7); }
+            100% { box-shadow: 0 0 0 0.25rem rgba(245, 73, 39, 0.25), 0 0 10px 3px rgba(245, 73, 39, 0.5); }
+        }
+
+        /* Botón naranja con efecto */
+        .btn-orange {
+            background-color: var(--primary-orange);
+            border: none;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-orange:hover {
+            background-color: var(--highlight-orange);
+            box-shadow: 0 0 15px 5px rgba(245, 73, 39, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .btn-orange::after {
+            content: '';
+            position: absolute;
+            top: 150%;
+            left: 100%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(30deg);
+            transition: all 0.7s;
+        }
+
+        .btn-orange:hover::after {
+            left: 100%;
+        }
