@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Forzar Apache a usar public
-sed -i 's#/home/site/wwwroot#/home/site/wwwroot/public#g' /etc/apache2/sites-available/000-default.conf
+echo "Starting PHP built-in server for CI4"
 
-apache2-foreground
+php -S 0.0.0.0:8080 -t public
