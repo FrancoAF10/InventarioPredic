@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const anio = document.getElementById("anio").value;
 
         const url =
-        `<?= site_url('public/api/getdatamovimientos') ?>?producto=${producto}&mes=${mes}&anio=${anio}`;
+        `<?= site_url('api/getdatamovimientos') ?>?producto=${producto}&mes=${mes}&anio=${anio}`;
 
         try{
 
