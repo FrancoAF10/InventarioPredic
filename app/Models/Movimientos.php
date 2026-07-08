@@ -68,7 +68,7 @@ protected $allowedFields = ['fecha','tipo','id_producto','id_zona','cantidad','o
                 $builder->where('YEAR(m.fecha)', $anio);
             }
 
-            $builder->groupBy('m.id_producto');
+            $builder->groupBy('m.id_producto, p.nombre');
 
             return $builder->get()->getResultArray();
 }
