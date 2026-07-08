@@ -25,7 +25,7 @@ public function predecir()
     $datos["productos"] = $Producto->findAll();
     $datos['header'] = view("Layouts/header");
     $datos['footer'] = view("Layouts/footer");
-
+    $datos['idProductoSeleccionado'] = $idProducto; 
     if (count($ventas) < 3) {
         $datos['prediccion'] = "No hay suficientes datos para predecir (mínimo 3 meses de historial).";
         return view("Predic/Prediccion", $datos);
