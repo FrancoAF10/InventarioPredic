@@ -21,7 +21,7 @@ $routes->get('/', 'home::index');
 $routes->get('/prediccion', 'PrediccionController::index');
 $routes->get('/productos', 'ProductoController::index');
 $routes->get('/dashboard', 'DashboardController::index');
-$routes->get('/public/api/getdatamovimientos', 'DashboardController::getDataInformeMovimiento');
+$routes->get('/api/getdatamovimientos', 'DashboardController::getDataInformeMovimiento');
 
 $routes->get('/stock', 'StockController::index');
 
