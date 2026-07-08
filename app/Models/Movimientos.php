@@ -73,5 +73,24 @@ protected $allowedFields = ['fecha','tipo','id_producto','id_zona','cantidad','o
                 return $builder->get()->getResultArray();
     }
 
+    public function ventasMensualesPorProducto($idProducto)
+{
+    $builder = $this->db->table('movimiento m');
+
+    $builder->select("
+        YEAR(m.fecha) AS anio,
+        MONTH(m.fecha) AS mes,
+        SUM(m.cantidad) AS ventas
+    ");
+
+    $builder->where('m.tipo', 'SALIDA');
+    $builder->where('m.id_producto', $idProducto);
+
+    $builder->groupBy('YEAR(m.fecha), MONTH(m.fecha)');
+    $builder->orderBy('anio', 'ASC');
+    $builder->orderBy('mes', 'ASC');
+
+    return $builder->get()->getResultArray();
+}
 
 }

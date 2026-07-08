@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\Movimientos;
 use App\Models\Producto;
 
 class PrediccionController extends BaseController
@@ -17,7 +18,7 @@ public function predecir()
 {
     $idProducto = $this->request->getPost('id_producto');
 
-    $movimiento = new \App\Models\Movimientos();
+    $movimiento = new Movimientos();
     $ventas = $movimiento->ventasMensualesPorProducto($idProducto);
 
     $Producto = new Producto();
