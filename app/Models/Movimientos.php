@@ -44,32 +44,34 @@ protected $allowedFields = ['fecha','tipo','id_producto','id_zona','cantidad','o
 
             return $builder->orderBy('movimiento.fecha', 'DESC')->findAll();
         }
-    public function ventasPorProducto($producto = null, $mes = null, $anio = null)
-        {
-            $builder = $this->db->table('movimiento m');
+        public function ventasPorProducto($producto = null, $mes = null, $anio = null)
+            {
+                $builder = $this->db->table('movimiento m');
 
-            $builder->select('
-                p.nombre AS producto,
-                SUM(m.cantidad) AS total_vendido
-            ');
+                $builder->select('
+                    p.nombre AS producto,
+                    SUM(m.cantidad) AS total_vendido
+                ');
 
-            $builder->join('producto p', 'p.id_producto = m.id_producto');
-            $builder->where('m.tipo', 'SALIDA');
+                $builder->join('producto p', 'p.id_producto = m.id_producto');
+                $builder->where('m.tipo', 'SALIDA');
 
-            if (!empty($producto)) {
-                $builder->where('m.id_producto', $producto);
-            }
+                if (!empty($producto)) {
+                    $builder->where('m.id_producto', $producto);
+                }
 
-            if (!empty($mes)) {
-                $builder->where('MONTH(m.fecha)', $mes);
-            }
+                if (!empty($mes)) {
+                    $builder->where('MONTH(m.fecha)', $mes);
+                }
 
-            if (!empty($anio)) {
-                $builder->where('YEAR(m.fecha)', $anio);
-            }
+                if (!empty($anio)) {
+                    $builder->where('YEAR(m.fecha)', $anio);
+                }
 
-            $builder->groupBy('m.id_producto, p.nombre');
+                $builder->groupBy('m.id_producto, p.nombre');
 
-            return $builder->get()->getResultArray();
-}
+                return $builder->get()->getResultArray();
+    }
+
+
 }
