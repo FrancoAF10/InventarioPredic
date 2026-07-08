@@ -68,7 +68,7 @@
       <div class="m-header">
         <a href="/dashboard" class="b-brand text-primary">
           <!-- ========   Change your logo from here   ============ -->
-          <img src="<?= base_url('assets/images /imagen-almacen.png') ?>" class="img-fluid logo-lg mt-3" alt="logo">
+          <img src="<?= base_url('assets/images/imagen-almacen.png') ?>" class="img-fluid logo-lg mt-3" alt="logo">
         </a>
       </div>
       <div class="navbar-content">

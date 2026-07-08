@@ -13,9 +13,6 @@ class ProductoController extends BaseController
         $datos['footer'] = view("Layouts/footer");
         return view('Producto/Listar',$datos);
 
-        //$Producto=new Producto();
-        //$datos["productos"]=$Producto->where("status","Pendiente")->findAll();
-        //return view('Averias/listar',$datos);
     }
 
     public function crear(){
