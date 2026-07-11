@@ -20,7 +20,7 @@
                 5 => 'Mayo', 6 => 'Junio', 7 => 'Julio', 8 => 'Agosto',
                 9 => 'Septiembre', 10 => 'Octubre', 11 => 'Noviembre', 12 => 'Diciembre'
             ];
-            $mesSeleccionado = $mesActual ?? date('n');
+            $mesSeleccionado = $mesActual ?? '';
             foreach ($meses as $num => $nombre): ?>
                 <option value="<?= $num ?>" <?= $num == $mesSeleccionado ? 'selected' : '' ?>>
                     <?= $nombre ?>
@@ -32,7 +32,7 @@
             <option value="">Todos los Años</option>
             <?php
             $anioActual = date('Y');
-            $anioSeleccionado = $anioActual2 ?? $anioActual;
+            $anioSeleccionado = $anioSeleccionado ?? '';
             for ($a = $anioActual - 3; $a <= $anioActual; $a++): ?>
                 <option value="<?= $a ?>" <?= $a == $anioSeleccionado ? 'selected' : '' ?>>
                     <?= $a ?>

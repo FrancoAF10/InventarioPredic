@@ -10,22 +10,21 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class MovimientosController extends BaseController
 {
-    public function index(): string
-    {
-        $Movimiento=new Movimientos();
-        $mes  = $this->request->getGet('mes')  ?? date('n');
-        $anio = $this->request->getGet('anio') ?? date('Y');
+    public function index(): string {
+    $Movimiento = new Movimientos();
+
+    $mes  = $this->request->getGet('mes');
+    $anio = $this->request->getGet('anio');
 
         $datos = [
-            'movimiento'    => $Movimiento->listarMovimientos($mes, $anio),
-            'mesActual'     => $mes,
-            'anioActual2'   => $anio,
-            'header'        => view("Layouts/header"),
-            'footer'        => view("Layouts/footer"),
+            'movimiento'       => $Movimiento->listarMovimientos($mes, $anio),
+            'mesActual'        => $mes,
+            'anioSeleccionado' => $anio, 
+            'header'           => view("Layouts/header"),
+            'footer'           => view("Layouts/footer"),
         ];
 
         return view('Movimiento/Listar', $datos);
-
     }
 
     public function crear()
