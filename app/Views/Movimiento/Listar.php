@@ -29,6 +29,7 @@
           </select>
 
           <select name="anio" class="form-select form-select-sm" style="width:110px">
+            <option value="">Todos los Años</option>
             <?php
             $anioActual = date('Y');
             $anioSeleccionado = $anioActual2 ?? $anioActual;
